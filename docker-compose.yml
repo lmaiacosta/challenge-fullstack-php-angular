@@ -20,6 +20,31 @@ services:
       - MYSQL_PASSWORD=dev
     networks:
       - avalyst_default
+  avalyst_api:
+    container_name: hotlead_api
+    build:
+      context: ./hotlead_api
+      dockerfile: Dockerfile
+    restart: unless-stopped
+    ports:
+      - "8816:80"
+    volumes:
+      - ./back-end/src:/var/www/html
+      - ./back-end:/var/www/html/backend_files
+      - ./logs/hotlead_api:/var/log/apache2
+    networks:
+      - avalyst_default
+    # redis:
+    #     container_name: redis
+    #     restart: always
+    #     build:
+    #         context: ./redis
+    #         dockerfile: Dockerfile
+    #     ports:
+    #         - 6379:6379
 networks:
   avalyst_default:
     driver: bridge
+#  app_default:
+#    driver: bridge
+

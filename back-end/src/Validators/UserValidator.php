@@ -11,7 +11,7 @@ final class UserValidator extends SelfValidation
         $rules = [
             'name' => v::notEmpty()->length(0, 100)->setName('Nome'),
             'email' => v::email()->notEmpty()->length(0, 100)->setName('E-mail'),
-            'password' => v::email()->notEmpty()->length(0, 100)->setName('Senha'),
+            'password' => v::notEmpty()->length(6, 100)->setName('Senha'),
         ];
 
         return $this->validateData($data, $rules);

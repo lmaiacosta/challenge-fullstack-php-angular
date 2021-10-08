@@ -8,7 +8,9 @@ $capsule->addConnection($container['settings']['db']);
 $capsule->bootEloquent();
 $capsule->setAsGlobal();
 
-$container["ContactService"] = function ($c)
-{
+$container["ContactService"] = function ($c) {
     return new \Api\Services\ContactService($c);
+};
+$container["UserService"] = function ($u) {
+    return new \Api\Services\UserService($u);
 };
