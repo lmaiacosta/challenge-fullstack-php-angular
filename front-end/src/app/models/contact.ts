@@ -4,3 +4,7 @@ export interface Contact {
     email: string;
     phone: string;
 }
+
+export interface Search {
+    query: string;
+}

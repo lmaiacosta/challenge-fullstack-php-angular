@@ -5,7 +5,7 @@ import { Observable } from 'rxjs';
 
 import { environment } from '../../environments/environment';
 import { ReturnMessage } from '../models/return-message';
-import { Contact } from '../models/contact';
+import { Contact, Search } from '../models/contact';
 
 @Injectable({
   providedIn: 'root'
@@ -24,6 +24,10 @@ export class ContactService {
 
   list(): Observable<ReturnMessage<Contact[]>>  {
     return this.http.get<ReturnMessage<Contact[]>>(this.apiUrl);
+  }
+
+  search(params: Search): Observable<ReturnMessage<Contact[]>>  {
+    return this.http.post<ReturnMessage<Contact[]>>(`${this.apiUrl}/search`, params);
   }
 
   create(model: Contact): Observable<ReturnMessage<Contact>> {

@@ -5,7 +5,7 @@ import { Observable } from 'rxjs';
 
 import { environment } from '../../environments/environment';
 import { ReturnMessage } from '../models/return-message';
-import { User } from '../models/user';
+import { User, Search } from '../models/user';
 
 @Injectable({
   providedIn: 'root'
@@ -24,6 +24,10 @@ export class UserService {
 
   list(): Observable<ReturnMessage<User[]>>  {
     return this.http.get<ReturnMessage<User[]>>(this.apiUrl);
+  }
+
+  search(params: Search): Observable<ReturnMessage<User[]>>  {
+    return this.http.post<ReturnMessage<User[]>>(`${this.apiUrl}/search`, params);
   }
 
   create(model: User): Observable<ReturnMessage<User>> {
