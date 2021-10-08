@@ -1,6 +1,10 @@
 <h2 class="mb-3">Contatos</h2>
 
-<button routerLink="/contatos/incluir" class="btn btn-success">incluir</button>
+  <div class="form-group">
+    <input id="search" name="search" type="text" value="" placeholder="Pesquisar..." class="form-control"/>
+  </div>
+  <button routerLink="/contatos/incluir" class="btn btn-success">Incluir</button>
+
 
 <table class="table my-4">
   <thead>
@@ -16,7 +20,7 @@
       <th scope="row">{{ contact.contactId }}</th>
       <td>{{ contact.name }}</td>
       <td>{{ contact.email }}</td>
-      <td>{{ contact.phone }}</td>
+      <td>{{ contact.phone | mask: '(00) 00000-0000' }} </td>
     </tr>
   </tbody>
 </table>

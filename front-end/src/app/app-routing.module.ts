@@ -8,6 +8,8 @@ const routes: Routes = [
   { path: '', redirectTo: '/contatos', pathMatch: 'full' },
   { path: 'contatos/incluir', component: ContactCreateComponent },
   { path: 'contatos', component: ContactListComponent },
+  { path: 'usuarios/incluir', component: UserCreateComponent },
+  { path: 'usuarios', component: UserListComponent },
 ];
 
 @NgModule({

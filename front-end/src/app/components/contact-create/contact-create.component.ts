@@ -23,7 +23,7 @@ export class ContactCreateComponent implements OnInit {
     this.form = new FormGroup({
       name: new FormControl('', Validators.required),
       email: new FormControl('', [Validators.required, Validators.email]),
-      phone: new FormControl('', [Validators.minLength(15)]),
+      phone: new FormControl('', [Validators.minLength(10)]),
     });
 
   }
