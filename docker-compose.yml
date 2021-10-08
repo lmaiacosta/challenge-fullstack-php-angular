@@ -1,0 +1,25 @@
+version: "3.1"
+services:
+  mysql:
+    container_name: mysql_avalyst
+    restart: always
+    command: --default-authentication-plugin=mysql_native_password
+    build:
+      context: ./mysql
+      dockerfile: Dockerfile
+    ports:
+      - "3310:3306"
+    volumes:
+      - ./mysql/setup.sql:/docker-entrypoint-initdb.d/setup.sql
+      - ./logs/mysql:/var/log/mysql/
+    environment:
+      - MYSQL_ROOT_PASSWORD=password
+      - MYSQL_ROOT_HOST=%
+      - MYSQL_DATABASE=avalyst_teste
+      - MYSQL_USER=dev
+      - MYSQL_PASSWORD=dev
+    networks:
+      - avalyst_default
+networks:
+  avalyst_default:
+    driver: bridge
