@@ -7,8 +7,7 @@ return [
         'addContentLengthHeader' => true,
         'db' => [
             'driver' => 'mysql',
-            'host' => '127.0.0.1',
-            'port' => '3310',
+            'host' => 'avalyst_mysql',
             'database' => 'avalyst_teste',
             'username' => 'dev',
             'password' => 'dev',
