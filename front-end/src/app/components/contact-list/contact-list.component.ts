@@ -18,10 +18,8 @@ export class ContactListComponent implements OnInit {
   }
 
   onSearchChange(event: any){
-    const params = { query: event.target.value };// as Search;
-    // console.log(search);
+    const params = { query: event.target.value };
     this.contactService.search(params).subscribe(response => this.contacts = response.data);
-
   }
 
 }
