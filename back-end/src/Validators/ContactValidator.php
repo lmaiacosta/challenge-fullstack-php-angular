@@ -11,7 +11,7 @@ final class ContactValidator extends SelfValidation
         $rules = [
             'name' => v::notEmpty()->length(0, 100)->setName('Nome'),
             'email' => v::email()->notEmpty()->length(0, 100)->setName('E-mail'),
-            'phone' => v::phone()->notEmpty()->length(0, 15)->setName('Telefone'),
+            'phone' => v::phone()->length(0, 15)->setName('Telefone'),
         ];
         // https://respect-validation.readthedocs.io/en/1.1/rules/Phone/
 

@@ -4,8 +4,8 @@ namespace Api\Models;
 
 final class Contact extends BaseModel
 {
-    protected $primaryKey = 'userId';
-    protected $table = 'user';
+    protected $primaryKey = 'contactId';
+    protected $table = 'contact';
 
     protected $fillable = [
         'name',
