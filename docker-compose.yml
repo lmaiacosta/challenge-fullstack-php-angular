@@ -1,6 +1,6 @@
 version: "3.1"
 services:
-  mysql:
+  avalyst_mysql:
     container_name: mysql_avalyst
     restart: always
     command: --default-authentication-plugin=mysql_native_password
@@ -21,30 +21,26 @@ services:
     networks:
       - avalyst_default
   avalyst_api:
-    container_name: hotlead_api
-    build:
-      context: ./hotlead_api
-      dockerfile: Dockerfile
-    restart: unless-stopped
+    image: php:7-alpine
+    working_dir: /var/www
+    command: php -S 0.0.0.0:8080 -t public
+    environment:
+      docker: "true"
     ports:
-      - "8816:80"
+      - 8831:8080
     volumes:
-      - ./back-end/src:/var/www/html
-      - ./back-end:/var/www/html/backend_files
-      - ./logs/hotlead_api:/var/log/apache2
+      - ./back-end:/var/www
+      - ./logs/back-end:/var/www/logs
     networks:
       - avalyst_default
-    # redis:
-    #     container_name: redis
-    #     restart: always
-    #     build:
-    #         context: ./redis
-    #         dockerfile: Dockerfile
-    #     ports:
-    #         - 6379:6379
+  # redis:
+  #     container_name: redis
+  #     restart: always
+  #     build:
+  #         context: ./redis
+  #         dockerfile: Dockerfile
+  #     ports:
+  #         - 6379:6379
 networks:
   avalyst_default:
     driver: bridge
-#  app_default:
-#    driver: bridge
-
