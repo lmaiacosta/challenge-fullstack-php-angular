@@ -22,7 +22,9 @@ services:
       - avalyst_default
   avalyst_api:
     container_name: avalyst_api
-    image: php:7
+    build:
+      context: ./back-end
+      dockerfile: Dockerfile
     working_dir: /var/www
     command: php -S 0.0.0.0:8080 -t public
     environment:
