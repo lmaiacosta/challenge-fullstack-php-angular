@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-  apiUrl: 'http://localhost:8282/'
+  apiUrl: 'https://avalyst.fpinfo.com.br/api/'
 };
