@@ -1,4 +1,4 @@
-# Avalyst - Teste
+# Challenge Full Stack PHP (Backend) + Angular (Frontend)
 
 Teste de [back-end (PHP)](back-end/README.md) e [front-end (Angular)](front-end/README.md).
 
